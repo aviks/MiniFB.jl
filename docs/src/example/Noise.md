@@ -1,7 +1,10 @@
-
-
+```julia
 using MiniFB
-# A simple function that renders some noise to a window. Demonstrates how to create a window and render a buffer into it using MiniFB
+```
+
+A simple function that renders some noise to a window. Demonstrates how to create a window and render a buffer into it using MiniFB
+
+```julia
 function noise()
     WIDTH = 800
     HEIGHT = 600
@@ -18,7 +21,7 @@ function noise()
             seed = seed >> 1;
             seed = seed | (carry << 30);
             noise = noise & 0xFF;
-            g_buffer[i] = mfb_rgb(noise, noise, noise); 
+            g_buffer[i] = mfb_rgb(noise, noise, noise);
         end
         state = mfb_update(window, g_buffer);
         if state != MiniFB.STATE_OK
@@ -27,8 +30,13 @@ function noise()
     end
     mfb_close(window)
 end
+```
 
-# Call the function
+Call the function
+
+```julia
 noise()
+```
 
-# ![](../assets/noise.png)
+![](../assets/noise.png)
+

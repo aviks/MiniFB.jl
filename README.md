@@ -24,12 +24,8 @@ while true
 end
 ```
 
-The code in this package calls directly and transparently into the C library. All the library functions begin with `mfb_`, and are exported from this package. Constants are not exported, and must be prefixed with the module name. See the [underlying C library headers](https://github.com/emoon/minifb/blob/master/include/MiniFB.h) for the list of available functions. 
+## Examples
 
-The `window` object, returned by the `mfb_open` and `mfb_open_ex` functions, is often passed in to other functions. This value happens to be an opaque pointer, so it should be be de-referenced in Julia code. Simply store it untyped, and pass it back in when required. 
-
-## Example
-
-See the `examples` directory for usage examples. 
+See the `example` directory for usage examples. 
 
 

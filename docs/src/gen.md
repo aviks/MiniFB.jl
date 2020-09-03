@@ -6,7 +6,7 @@ The code for this package has been generated using [Clang.jl](https://github.com
 * Change current working directory to `MiniFB/src`
 * Clone the source of the MiniFB library from `https://github.com/emoon/minifb` to `/tmp`
  
-Then run the following code: 
+Then run the following code will regenerate the files: 
 
 ```
 const MINCLUDE = "/tmp/minifb/include/"

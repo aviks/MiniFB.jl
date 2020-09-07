@@ -2,7 +2,7 @@
 
 | **Documentation**           | **Status**            |
 |:---------------------------:|:---------------------:|
-| [![][docs-stable-img]][docs-stable-url]  |  [![Build Status][ci-img]](ci-url)  [![version][version-img]](version-url)|
+| [![][docs-stable-img]][docs-stable-url]  |  [![Build Status][ci-img]][ci-url] [![version][version-img]][version-url] |
 
 
 

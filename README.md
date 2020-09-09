@@ -15,15 +15,16 @@ A Julia wrapper around [MiniFB](https://github.com/emoon/minifb), a small cross 
 ```julia
 WIDTH=800
 HEIGHT=600
-window = mfb_open_ex("My Window", WIDTH, HEIGHT, MinFB.WF_RESIZABLE)
+window = mfb_open_ex("My Window", WIDTH, HEIGHT, MiniFB.WF_RESIZABLE)
 
-buffer = zeros(UInt32, WIDTH*HEIGHT)
-while true
-    # TODO add some rendering into the buffer
-    ...
-    state = mfb_update(buffer)
-    if state != MiniFB.STATE_OK
-        break
+local buffer = zeros(UInt32, WIDTH*HEIGHT)
+    while true
+        # TODO add some rendering into the buffer
+        ...
+        state = mfb_update(buffer)
+        if state != MiniFB.STATE_OK
+            break
+        end
     end
 end
 ```

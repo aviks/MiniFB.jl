@@ -13,6 +13,8 @@ A Julia wrapper around [MiniFB](https://github.com/emoon/minifb), a small cross 
 ## Quick Start
 
 ```julia
+using MiniFB
+
 WIDTH=800
 HEIGHT=600
 window = mfb_open_ex("My Window", WIDTH, HEIGHT, MiniFB.WF_RESIZABLE)

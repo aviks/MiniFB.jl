@@ -15,7 +15,7 @@ A Julia wrapper around [MiniFB](https://github.com/emoon/minifb), a small cross 
 ```julia
 WIDTH=800
 HEIGHT=600
-window = mfb_open_ex("My Window", WIDTH, HEIGHT, MinFB.WF_RESIZABLE)
+window = mfb_open_ex("My Window", WIDTH, HEIGHT, MiniFB.WF_RESIZABLE)
 
 buffer = zeros(UInt32, WIDTH*HEIGHT)
 while true
@@ -30,7 +30,7 @@ end
 
 ## Examples
 
-See the `example` directory for usage examples. 
+See the [`example`](./example) directory for usage examples. 
 
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [docs-stable-url]: https://juliahub.com/docs/MiniFB/

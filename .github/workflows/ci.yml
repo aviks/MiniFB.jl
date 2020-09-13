@@ -11,7 +11,6 @@ jobs:
       matrix:
         version:
           - '1.3'
-          - '1.4'
           - '1.5'
         os:
           - ubuntu-latest
@@ -23,6 +22,10 @@ jobs:
         exclude:
           - os: macOS-latest
             arch: x86
+          - os: macOS-latest
+            version: '1.3'
+          - os : windows-latest 
+            version: '1.3'
     steps:
       - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1

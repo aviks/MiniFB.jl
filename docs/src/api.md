@@ -44,11 +44,11 @@ mfb_rgb
 
 ## Callback signatures
 
-These are the callback signatures used by the C library when signalling events. The Julia function should be written accordingly, and wrapped with a `@cfunction` before passing on to the library. See the [Image Viewer example](../example/Image) for more detail. 
+These are the callback signatures used by the C library when signaling events. The Julia function should be written with the correct signature, and passed to the library via the various `mfb_set_*_callback`. See the [Image Viewer example](../example/Image) for more detail.
 
 ### active
 
-    active(window::Ptr{Cvoid}, isActive::Uint8)
+    active(window::Ptr{Cvoid}, isActive::Bool)
 
 
 ### resize
@@ -58,7 +58,7 @@ These are the callback signatures used by the C library when signalling events. 
 
 ### keyboard
 
-    keyboard(window::Ptr{Cvoid}, key::mfb_key, mod::mfb_key_mod, isPressed::Uint8) 
+    keyboard(window::Ptr{Cvoid}, key::mfb_key, mod::mfb_key_mod, isPressed::Bool)
 
 ### char_input
 
@@ -66,7 +66,7 @@ These are the callback signatures used by the C library when signalling events. 
 
 ### mouse_btn
 
-    mouse_btn(window::Ptr{Cvoid}, button::mfb_mouse_button, mod::mfb_key_mod, isPressed::Uint8)
+    mouse_btn(window::Ptr{Cvoid}, button::mfb_mouse_button, mod::mfb_key_mod, isPressed::Bool)
 
 ### mouse_move
 

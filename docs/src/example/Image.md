@@ -39,12 +39,6 @@ function onclick(window, button, mod, isPressed)::Cvoid
 end
 ```
 
-The callback needs to be passed to the C library. The @cfunction macro creates a
-
-```julia
-onclick_c = @cfunction(onclick, Cvoid, (Ptr{Cvoid}, mfb_mouse_button, mfb_key_mod, UInt8) )
-```
-
 Populate a MiniFB buffer from the image data.
 First, resize the image to the window dimensions. Calculate it's position so that it is centered in the window.
 Finally, inside the loop, convert each pixel to the 32 bit MiniFB buffer format.
@@ -80,7 +74,7 @@ function imageview(dir::String=".")
     buffer = zeros(UInt32, HEIGHT*WIDTH)
     mfb_set_target_fps(10)
     window = mfb_open_ex("Image Viewer", WIDTH, HEIGHT, MiniFB.WF_RESIZABLE);
-    mfb_set_mouse_button_callback(window, onclick_c);
+    mfb_set_mouse_button_callback(window, onclick);
     old_ni=0
     while mfb_wait_sync(window)
         if ni != old_ni
@@ -113,4 +107,3 @@ imageview(joinpath(dirname(pathof(MiniFB)),"..", "example"))
 ```
 
 ![](../assets/imageviewer.png)
-

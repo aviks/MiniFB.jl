@@ -8,17 +8,18 @@ include("ctypes.jl")
 export Ctm, Ctime_t, Cclock_t
 
 include("libminifb_common.jl")
-include( "libminifb_api.jl")
+include("libminifb_api.jl")
+include("helpers.jl")
 
-function mfb_rgb(r::UInt8, g::UInt8, b::UInt8)::UInt32 
+function mfb_rgb(r::UInt8, g::UInt8, b::UInt8)::UInt32
     reinterpret(UInt32, [b, g, r, zero(UInt8)])[1]
 end
 
 """
     mfb_rgb(r, g, b)::UInt32
 
-convert 8 bit color channels to a single 32 bit buffer. 
-Input should be of some integer type in the range 0-255. 
+convert 8 bit color channels to a single 32 bit buffer.
+Input should be of some integer type in the range 0-255.
 `InexactError` will be thrown if the inputs are fractional, or larger than 255.
 """
 mfb_rgb(r, g, b) = mfb_rgb(UInt8(r), UInt8(g), UInt8(b))

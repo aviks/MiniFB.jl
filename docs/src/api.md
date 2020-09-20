@@ -10,6 +10,7 @@ mfb_open_ex
 mfb_update
 mfb_update_events
 mfb_close
+mfb_rgb
 mfb_set_user_data
 mfb_get_user_data
 mfb_set_viewport
@@ -39,12 +40,11 @@ mfb_timer_now
 mfb_timer_delta
 mfb_timer_get_frequency
 mfb_timer_get_resolution
-mfb_rgb
 ```
 
-## Callback signatures
+## Callback Functions
 
-These are the callback signatures used by the C library when signaling events. The Julia function should be written with the correct signature, and passed to the library via the various `mfb_set_*_callback`. See the [Image Viewer example](../example/Image) for more detail.
+These are the callback signatures used by the C library when signaling events. The Julia function should be written with the correct signature, and passed to the library via the various `mfb_set_*_callback`. See the [Image Viewer example](../example/Image/) for more detail. There are additional methods of these functions that take a function pointer, for finer grained control, but they should not be needed for most cases. 
 
 ### active
 

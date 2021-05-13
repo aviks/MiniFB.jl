@@ -5,6 +5,7 @@
 using Images
 using ImageTransformations
 using MiniFB
+using MiniFB.LibMiniFB
 
 # Set the size of the window
 global const WIDTH = 600

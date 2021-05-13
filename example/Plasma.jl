@@ -1,7 +1,8 @@
 
 using MiniFB
+using MiniFB.LibMiniFB
 
-# This function displays a time-varying mix of colors on screen. Demonstrates how to create a buffer and render it to a window. 
+# This function displays a time-varying mix of colors on screen. Demonstrates how to create a buffer and render it to a window.
 function plasma()
     pallete = zeros(UInt32, 512)
     WIDTH = 320
@@ -27,9 +28,9 @@ function plasma()
         time_y = cos(time * π / 180);
         i = 1;
         for y in 1:HEIGHT
-            dy = cos((y * time_y) * π / 180); 
+            dy = cos((y * time_y) * π / 180);
             for x in 1:WIDTH
-                dx = sin((x * time_x) * π / 180); 
+                dx = sin((x * time_x) * π / 180);
                 idx = round(Int, ((2 + dx + dy) * 0.25 * 511) + 1)
                 g_buffer[i] = pallete[idx];
                 i += 1

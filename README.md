@@ -23,7 +23,7 @@ buffer = zeros(UInt32, WIDTH*HEIGHT)
 while true
     # TODO add some rendering into the buffer
     ...
-    state = mfb_update(buffer)
+    state = mfb_update(window,buffer)
     if state != MiniFB.STATE_OK
         break
     end

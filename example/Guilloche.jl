@@ -1,12 +1,12 @@
-# This code shows how visualisations created with [Luxor.jl](https://github.com/JuliaGraphics/Luxor.jl) can be 
-# rendered easily with MiniFB. 
+# This code shows how visualisations created with [Luxor.jl](https://github.com/JuliaGraphics/Luxor.jl) can be
+# rendered easily with MiniFB.
 
 # Add the Luxor, Colors and MiniFB packages to your environment before running this code.
 using Luxor, MiniFB, Colors
+using MiniFB.LibMiniFB
 
-
-# [Guilloché](https://en.wikipedia.org/wiki/Guilloch%C3%A9) is a decorative technique in which a very precise, intricate and repetitive pattern is mechanically 
-# engraved into an underlying material via engine turning. The following struct contains the metadata used to render the pattern. 
+# [Guilloché](https://en.wikipedia.org/wiki/Guilloch%C3%A9) is a decorative technique in which a very precise, intricate and repetitive pattern is mechanically
+# engraved into an underlying material via engine turning. The following struct contains the metadata used to render the pattern.
 mutable struct Guilloche
     f1::Float64
     f2::Float64
@@ -48,13 +48,13 @@ function drawguilloche(g::Guilloche, radius=20;
     strokepath()
 end
 
-# The main method sets up the Guilloche struct, opens the window for display, and animates the frames using a while loop. 
+# The main method sets up the Guilloche struct, opens the window for display, and animates the frames using a while loop.
 function main()
     WIDTH  = 600
     HEIGHT = 600
     window = mfb_open_ex("Luxor -> MiniFB", WIDTH, HEIGHT, MiniFB.WF_RESIZABLE)
     y = 0.1
-    g2 = Guilloche(2, 1.5, 3, 1, 
+    g2 = Guilloche(2, 1.5, 3, 1,
         0.0005, 0.0005, 0.0005, 0.0005,
         .1, .1, .1, .1)
     t1 = time_ns()
@@ -78,16 +78,16 @@ function main()
                         limit=10,
                         colorfunction = (t) -> sethue(HSL(rescale(t, 0, 300, 0, 359), 0.9, 0.7)))
                     t2 = time_ns()
-                    text(string("fps: ", round(1E9/(t2-t1), digits=2)), 
+                    text(string("fps: ", round(1E9/(t2-t1), digits=2)),
                         boxtopleft(BoundingBox() * 0.9))
                 end 600 600
         y = y + 0.001
         (y > 1) && (y = 0.1)
 # The image matrix created by Luxor is, in standard Julia convention, column first. The buffer
-# expected by MiniFB is row first. The call to `permutedims` makes that change.         
+# expected by MiniFB is row first. The call to `permutedims` makes that change.
         state = mfb_update(window, permutedims(buffer, (2, 1)))
         t1 = t2
-# Exit when the user closes the window. 
+# Exit when the user closes the window.
         if state != MiniFB.STATE_OK
             break
         end
@@ -95,10 +95,10 @@ function main()
     mfb_close(window)
 end
 
-# Call the main function. This produces really attractive animations -- I highly reccomend you run this yourself! 
-# The static image below shows you one frame, but does not do justice to the whole animation. 
+# Call the main function. This produces really attractive animations -- I highly reccomend you run this yourself!
+# The static image below shows you one frame, but does not do justice to the whole animation.
 main()
 
 # ![](../assets/guilloche.png)
 
-# _Thanks to [`@Cormullion`](https://github.com/cormullion) for this example_ 
+# _Thanks to [`@Cormullion`](https://github.com/cormullion) for this example_

@@ -22,8 +22,7 @@ makedocs(;
             "Image" => "example/Image.md",
             "Guilloche" => "example/Guilloche.md"
         ],
-        "API" => "api.md",
-        "Generated Code" => "gen.md"
+        "API" => "api.md"
     ],
     sitename="MiniFB",
     authors="Avik Sengupta"

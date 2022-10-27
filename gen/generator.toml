@@ -1,0 +1,9 @@
+[general]
+library_name = "libminifb"
+output_file_path = "../src/LibMiniFB.jl"
+module_name = "LibMiniFB"
+jll_pkg_name = "MiniFB_jll"
+export_symbol_prefixes = ["mfb_", "WF_", "STATE_", "MOUSE_", "KB_"]
+use_deterministic_symbol = true
+use_julia_native_enum_type = true
+printer_blacklist = []
